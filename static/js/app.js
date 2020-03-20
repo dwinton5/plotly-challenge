@@ -30,6 +30,8 @@ function buildCharts(sample) {
       .slice(0, 10)
       .map(id => `OTU ${id}`)
       .reverse();
+
+// Bar chart code
     var barChart = [
       {
         y: yticks,
@@ -43,6 +45,8 @@ function buildCharts(sample) {
       title: "Bacteria Cultures Found"
     };
     Plotly.newPlot("bar", barChart, barLayout);
+
+// Bubble chart code
     var bubbleChart = [
       {
         x: otu_ids,
@@ -64,7 +68,7 @@ function buildCharts(sample) {
   });
 }
 
-// Funciton for sampling th data.
+// Funciton for sampling the necessary data.
 function init() {
   var dropDown = d3.select("#selDataset");
   d3.json("samples.json").then(data => {
@@ -81,6 +85,8 @@ function init() {
     buildMetadata(firstSample);
   });
 }
+
+//  Function for the change event.
 function optionChanged(sample) {
   buildCharts(sample);
   buildMetadata(sample);
